@@ -6,7 +6,7 @@
 /*   By: gbadi <guillaume.badi@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/05 23:22:34 by gbadi             #+#    #+#             */
-/*   Updated: 2014/08/06 22:02:02 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/08/06 22:28:23 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./list.h"
@@ -57,7 +57,7 @@ void				ft_print_list(t_node *begin)
  * * a value.
  * *
  */
-t_node				*ft_create_node(void *data)
+t_node				*ft_create_node(char *data)
 {
 	t_node		*node;
 
@@ -84,7 +84,7 @@ t_node				*ft_create_node(void *data)
  * * list = ft_push(list, "World!");
  * * => (Hello, World!)
  */
-t_node				*ft_push(t_node *begin, void *data)
+t_node				*ft_push(t_node *begin, char *data)
 {
 	t_node		*node;
 
@@ -104,7 +104,7 @@ t_node				*ft_push(t_node *begin, void *data)
  * * list = ft_unshift(list, "Hey!");
  * * => (Hey, Hello, World!)
  */
-t_node				*ft_unshift(t_node *begin, void *data)
+t_node				*ft_unshift(t_node *begin, char *data)
 {
 	t_node		*node;
 	t_node		*current;
@@ -179,7 +179,7 @@ void				*ft_list_get(t_node *node, int index)
  * * Cf ft_list_set()
  * *
  */
-t_node				*ft_list_replace(t_node *node, int index, void *data)
+t_node				*ft_list_replace(t_node *node, int index, char *data)
 {
 	t_node		*current;
 	int			len;
@@ -212,7 +212,7 @@ t_node				*ft_list_replace(t_node *node, int index, void *data)
  * * list = ft_list_set(list, 4, "42") => (Hello, Guillaume, , , 42)
  * *
  */
-t_node				*ft_list_set(t_node *node, int index, void *data)
+t_node				*ft_list_set(t_node *node, int index, char *data)
 {
 	if (index > list_length(node) - 1)
 	{
@@ -258,4 +258,28 @@ t_node				*ft_shift(t_node *begin)
 	free(current->next);
 	current->next = NULL;
 	return (begin);
+}
+
+/*
+ * *
+ * * This function search for an occurence of a given element in the list, and returns its index
+ * * It returns -1 if there's no occurence of the word;
+ * * It's useful to test wether a string contains an option or a command
+ */
+int					ft_indexOf(t_node *node, char *data)
+{
+	t_node		*current;
+	int			len;
+
+	current = node;
+	len = list_length(node) - 1;
+	while (current != NULL)
+	{
+		printf("current->data\t%s\n", current->data);
+		if (ft_strcmp(current->data, data) == 0)
+			return (len);
+		current = current->next;
+		len--;
+	}
+	return (-1);
 }
