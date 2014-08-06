@@ -6,7 +6,7 @@
 /*   By: gbadi <guillaume.badi@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/05 23:22:34 by gbadi             #+#    #+#             */
-/*   Updated: 2014/08/06 22:28:23 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/08/06 23:07:45 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./list.h"
@@ -275,7 +275,6 @@ int					ft_indexOf(t_node *node, char *data)
 	len = list_length(node) - 1;
 	while (current != NULL)
 	{
-		printf("current->data\t%s\n", current->data);
 		if (ft_strcmp(current->data, data) == 0)
 			return (len);
 		current = current->next;
