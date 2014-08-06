@@ -202,4 +202,5 @@ prompt$ ("Hello", "my", "name", "is", "guillaume")
 ``` c
 t_node				*ft_parse(char *str);
 ```
+#### For any help, contact me on twitter (@WeshGuillaume)
 ####Enjoy
