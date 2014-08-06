@@ -110,6 +110,7 @@ in a .h file (you might also `touch` a Makefile))
 create and returns a list element pointing to NULL
 ``` c
 t_node				*ft_create_node(char *data);
+```
 
 add an element at the end of the list ("not here", "here")
 ``` c
