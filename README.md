@@ -57,9 +57,14 @@ int		main(void)
 	return (0);
 }
 ```
+### Allowed functions
+* write (unistd.h)
+* read (unistd.h)
+* malloc (stdlib.h)
+* free (stdlib.h)
 
 ### Do it yourself !
-	simply make these functions so that the previous main compile
+	simply make these functions so that the previous main compiles
 
 print a character
 ``` c
