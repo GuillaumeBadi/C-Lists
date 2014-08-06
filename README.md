@@ -62,6 +62,7 @@ int		main(void)
 * read (unistd.h)
 * malloc (stdlib.h)
 * free (stdlib.h)
+(NOTHING ELSE)
 
 ### Do it yourself !
 	simply make these functions so that the previous main compiles
