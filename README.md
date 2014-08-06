@@ -57,6 +57,8 @@ int		main(void)
 	return (0);
 }
 ```
+
+
 ### Allowed functions
 * write (unistd.h)
 * read (unistd.h)
@@ -64,38 +66,46 @@ int		main(void)
 * free (stdlib.h)
 (NOTHING ELSE)
 
+
 ### Do it yourself !
 	simply make these functions so that the previous main compiles
+
 
 print a character
 ``` c
 void				ft_putchar(char c);
 ```
 
+
 print a string
 ``` c
 void				ft_putstr(char *str);
 ```
+
 
 print a number
 ``` c
 void				ft_putnbr(int number);
 ```
 
+
 return the length of a string
 ``` c
 int					ft_strlen(char *str);
 ```
+
 
 return 0 if the strings are equals
 ``` c
 int					ft_strcmp(char *s1, char *s2);
 ```
 
+
 duplicate an entire string with malloc
 ``` c
 char				*ft_strdup(char *str);
 ```
+
 
 duplicate a string from the beginning to the first space
 example => "Hello World!" -> "Hello"
@@ -103,45 +113,54 @@ example => "Hello World!" -> "Hello"
 char				*ft_str_space_dup(char *str);
 ```
 
+
 print a message, then listen the file descriptor 0, to get 
 the user input (you might just take it in the "src" folder if you are weak)
 ``` c
 char				*ft_prompt(char *message);
 ```
 
-Serious stuff starts here
+
+###Serious stuff starts here
 (if you have not done it yet, organize your code in different files and folders and write your prototypes
 in a .h file (you might also `touch` a Makefile))
+
 
 create and returns a list element pointing to NULL
 ``` c
 t_node				*ft_create_node(char *data);
 ```
 
+
 add an element at the end of the list ("not here", "here")
 ``` c
 t_node				*ft_push(t_node *begin, char *data);
 ```
+
 
 add an element at the begining of the list
 ``` c
 t_node				*ft_unshift(t_node *begin, char *data);
 ```
 
+
 remove the last element ("not this one", "that one")
 ``` c
 t_node				*ft_pop(t_node *begin);
 ```
+
 
 remove the first element of the list
 ``` c
 t_node				*ft_shift(t_node *begin);
 ```
 
+
 returns the length of the list
 ``` c
 int					list_length(t_node *node);
 ```
+
 
 ("print", "the", "list", "in", "this", "format")
 for that you'll need a recursive function that prints a list backwards
@@ -150,12 +169,14 @@ void				ft_print_list(t_node *begin);
 void				ft_print_reversed(t_node *node);
 ```
 
+
 return the value a a list like an array
 example: ("Hello", "World!") --- ft_list_get(list, 1) returns World wich is at index 1 (Hello at index 0)
 got it ?
 ``` c
 void				*ft_list_get(t_node *node, int index);
 ```
+
 
 It's getting harder and harder. 
 This guy down here replaces the value of a node[i], if the node doesn't existe (yet), pushes some empty nodes to creates the one it wants
@@ -164,18 +185,20 @@ example : ("Hello", "my") --- ft_list_set(list, 3, "friend"); ft_list_set(list, 
 t_node				*ft_list_set(t_node *node, int index, char *value);
 ```
 
+
 returns the index of an element if the particular element is exists in the list.
 if not, simply returns -1
 ``` c
 int					ft_indexOf(t_node *node, char *data);
 ```
 
+
 Finals kids !
 this guy asks the user for a string removes the extra spaces and tabs, and create a list with the words
 
-guillaume_prompt$ ./prompt
-guillaume_prompt$ Type your command: Hello my name is guillaume
-guillaume_prompt$ ("Hello", "my", "name", "is", "guillaume")
+prompt$ ./prompt
+prompt$ Type your command:   Hello    my    name  is   guillaume
+prompt$ ("Hello", "my", "name", "is", "guillaume")
 ``` c
 t_node				*ft_parse(char *str);
 ```
