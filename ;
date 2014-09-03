@@ -6,7 +6,7 @@
 /*   By: gbadi <guillaume.badi@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/05 23:22:34 by gbadi             #+#    #+#             */
-/*   Updated: 2014/09/03 20:07:29 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/09/03 19:55:36 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "./list.h"
@@ -89,17 +89,21 @@ int					list_length(t_node *node)
 	return (i);
 }
 
-char				*ft_list_get(t_node *node, int index)
+void				*ft_list_get(t_node *node, int index)
 {
 	t_node		*current;
 	int			i;
 
 	current = node;
 	i = 0;
-	while (i < index)
+	while (i > index)
 	{
 		current = current->next;
-		i++;
+		len--;
+	}
+	if (len != index)
+	{
+		return (NULL);
 	}
 	return (current->data);
 }
@@ -107,33 +111,30 @@ char				*ft_list_get(t_node *node, int index)
 t_node				*ft_list_replace(t_node *node, int index, char *data)
 {
 	t_node		*current;
-	int			i;
+	int			len;
 
 	current = node;
-	i = 0;
-	while (i < index)
+	len = list_length(node) - 1;
+	while (len > index)
 	{
 		current = current->next;
-		i++;
+		len--;
 	}
-	current->data = ft_strdup(data);
+	current->data = ft_strdup((char *)data);
 	return (node);
 }
 
 t_node				*ft_list_set(t_node *node, int index, char *data)
 {
-	t_node		*current;
-
-	current = node;
-	if (index <= list_length(current) + 1)
+	if (index > list_length(node) - 1)
 	{
-		ft_list_replace(node, index, data);
-		return (node);
+		node = ft_push(node, NULL);
+		return (ft_list_set(node, index, data));
 	}
 	else
 	{
-		ft_push(node, 0);
-		return (ft_list_set(node, index, data));
+		node = ft_list_replace(node, index, data);
+		return (node);
 	}
 }
 

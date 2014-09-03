@@ -6,7 +6,7 @@
 /*   By: gbadi <guillaume.badi@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/08/05 23:30:49 by gbadi             #+#    #+#             */
-/*   Updated: 2014/08/06 23:15:46 by gbadi            ###   ########.fr       */
+/*   Updated: 2014/09/03 20:07:49 by gbadi            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct		s_node
 {
@@ -29,7 +30,7 @@ int					ft_strlen(char *str);
 char				*ft_prompt(char *message);
 char				*ft_strdup(char *str);
 char				*ft_str_space_dup(char *str);
-void				*ft_list_get(t_node *node, int index);
+char				*ft_list_get(t_node *node, int index);
 void				ft_print_reversed(t_node *node);
 void				ft_print_list(t_node *begin);
 void				ft_putchar(char c);
